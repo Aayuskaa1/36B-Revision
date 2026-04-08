@@ -115,4 +115,21 @@ isEven(4)
     }
   }
   parallelRun();
+
+  const parallelRun2 =() => {
+    try{
+        const [result1, result2] = await Promise.allSettled(
+            [
+            isEven(4),
+            isPositive(-4)
+            ]
+        )
+        console.log("Is even:", result1, result1.value); // value = resolved
+        console.log("Is positive:", result2, result2.value);
+    }catch(error) {
+        console.log(error);
+    }
+}    
   
+
+
